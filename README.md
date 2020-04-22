@@ -16,4 +16,3 @@
 - Finish javascript, work on design + styling
 - Work on project pitch and demo
 - Presentation Day
-
