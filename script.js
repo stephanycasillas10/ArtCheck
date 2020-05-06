@@ -1,6 +1,29 @@
 $("button").click(function(){
-  // $("something").val()
   let userInput= $("input").val();
-  alert(userInput);
+  let movieAPI = `https://www.omdbapi.com/?t=${userInput}&apikey=e043d03d`;
   
-})
+  
+  fetch(movieAPI)
+    .then(function(response) {  
+      return response.json();
+  
+    })
+    .then(function(data) { 
+     if (data.Response === "False"){
+        alert("Sorry Search not Found :/")
+     }
+     else {
+      fetch(movieAPI)
+      .then(function(response) {  
+        return response.json();
+
+      })
+      .then(function(data){ 
+       var poster = data.Poster
+       var genre = data.Genre
+        $(".imghere").html(`<img src=${poster}>`)
+        $(".genre").html(`<p>${genre}</p>`)
+      });
+     }
+  })
+});
