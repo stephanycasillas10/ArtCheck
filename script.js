@@ -21,8 +21,12 @@ $("button").click(function(){
       .then(function(data){ 
        var poster = data.Poster
        var genre = data.Genre
+       var awards = data.Awards
+       var actors = data.Actors
         $(".imghere").html(`<img src=${poster}>`)
         $(".genre").html(`<p>${genre}</p>`)
+        $(".awards").html(`<p>${awards}</p>`)
+        $(".actors").html(`<p>${actors}</p>`)
       });
      }
   })
